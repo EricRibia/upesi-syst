@@ -37,7 +37,7 @@
                     </thead>
 
                     <tbody>
-                        <tr v-for="client in clients">
+                        <tr v-for="(client,i) in clients" :key="i">
                             <!-- ID -->
                             <td style="vertical-align: middle;">
                                 {{ client.id }}

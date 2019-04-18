@@ -15599,7 +15599,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(223)
+var listToStyles = __webpack_require__(226)
 
 /*
 type StyleObject = {
@@ -40510,9 +40510,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(217)
+var __vue_script__ = __webpack_require__(220)
 /* template */
-var __vue_template__ = __webpack_require__(218)
+var __vue_template__ = __webpack_require__(221)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40555,7 +40555,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(144);
-module.exports = __webpack_require__(236);
+module.exports = __webpack_require__(239);
 
 
 /***/ }),
@@ -40615,7 +40615,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_progressbar___default.a, {
     failedColor: 'red',
     height: '5px'
 });
-var routes = [{ path: '/dashboard', component: __webpack_require__(141) }, { path: '/edit-about', component: __webpack_require__(181) }, { path: '/edit-services', component: __webpack_require__(184) }, { path: '/edit-policies', component: __webpack_require__(187) }, { path: '/edit-countries', component: __webpack_require__(190) }, { path: '/edit-payments', component: __webpack_require__(193) }, { path: '/formsubmissions', component: __webpack_require__(196) }, { path: '/edit-works', component: __webpack_require__(199) }, { path: '/edit-team', component: __webpack_require__(202) }, { path: '/edit-slider', component: __webpack_require__(205) }, { path: '/edit-partners', component: __webpack_require__(256) }, { path: '/developer', component: __webpack_require__(208) }, { path: '/profile', component: __webpack_require__(211) }, { path: '/users', component: __webpack_require__(214) }, { path: '*', component: __webpack_require__(142) }];
+var routes = [{ path: '/dashboard', component: __webpack_require__(141) }, { path: '/edit-about', component: __webpack_require__(181) }, { path: '/edit-services', component: __webpack_require__(184) }, { path: '/edit-policies', component: __webpack_require__(187) }, { path: '/edit-countries', component: __webpack_require__(190) }, { path: '/edit-payments', component: __webpack_require__(193) }, { path: '/formsubmissions', component: __webpack_require__(196) }, { path: '/edit-works', component: __webpack_require__(199) }, { path: '/edit-team', component: __webpack_require__(202) }, { path: '/edit-slider', component: __webpack_require__(205) }, { path: '/edit-partners', component: __webpack_require__(208) }, { path: '/developer', component: __webpack_require__(211) }, { path: '/profile', component: __webpack_require__(214) }, { path: '/users', component: __webpack_require__(217) }, { path: '*', component: __webpack_require__(142) }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_6_vue_router__["a" /* default */]({
     mode: 'history',
@@ -40626,14 +40626,14 @@ var router = new __WEBPACK_IMPORTED_MODULE_6_vue_router__["a" /* default */]({
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('pagination', __webpack_require__(219));
+Vue.component('pagination', __webpack_require__(222));
 Vue.component('dashboard', __webpack_require__(141));
 Vue.component('notfound', __webpack_require__(142));
-Vue.component('passport-clients', __webpack_require__(220));
+Vue.component('passport-clients', __webpack_require__(223));
 
-Vue.component('passport-authorized-clients', __webpack_require__(226));
+Vue.component('passport-authorized-clients', __webpack_require__(229));
 
-Vue.component('passport-personal-access-tokens', __webpack_require__(231));
+Vue.component('passport-personal-access-tokens', __webpack_require__(234));
 Vue.filter('upText', function (text) {
     return text.charAt(0).toUpperCase() + text.slice(1);
 });
@@ -96798,7 +96798,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/Developer.vue"
+Component.options.__file = "resources/js/components/pages/Partners.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -96807,9 +96807,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5932c622", Component.options)
+    hotAPI.createRecord("data-v-59091a7e", Component.options)
   } else {
-    hotAPI.reload("data-v-5932c622", Component.options)
+    hotAPI.reload("data-v-59091a7e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -96837,6 +96837,620 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            editMode: false,
+            tasks: [],
+            paginate: ['tasks'],
+            form: new Form({
+                id: '',
+                url: '',
+                img: ''
+            })
+        };
+    },
+
+    filters: {
+        summary: function summary(value) {
+            if (!value) return '';
+            value = value.toString();
+            return value.substr(0, 25) + '...';
+        }
+    },
+    methods: {
+        newModal: function newModal() {
+            this.editMode = false;
+            this.form.reset();
+            this.form.clear();
+            $('#addNew').modal('show');
+        },
+        editModal: function editModal(teamCont) {
+            this.editMode = true;
+            this.form.reset();
+            $('#addNew').modal('show');
+            this.form.clear();
+            this.form.fill(teamCont);
+        },
+        photoUpload: function photoUpload(e) {
+            var _this = this;
+
+            var file = e.target.files[0];
+            var reader = new FileReader();
+            if (file['size'] < 262144) {
+                reader.onloadend = function (file) {
+                    // console.log('Result', reader.result);
+                    _this.form.img = reader.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                swal({
+                    type: 'error',
+                    title: 'Failed to upload',
+                    text: 'Image should be less than 2mbs'
+                });
+            }
+        },
+        deletePartner: function deletePartner(id) {
+            var _this2 = this;
+
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then(function (result) {
+                if (result.value) {
+                    _this2.form.delete('api/partner/' + id).then(function () {
+                        swal('Deleted!', 'Partner removed successfully.', 'success');
+                        Fire.$emit('createNew');
+                    }).catch(function () {
+                        swal({
+                            type: 'error',
+                            title: 'Failed',
+                            text: 'Something went wrong!'
+                        });
+                    });
+                }
+            });
+        },
+        updatePartner: function updatePartner() {
+            var _this3 = this;
+
+            this.$Progress.start();
+            this.form.put('api/partner/' + this.form.id).then(function () {
+                //success
+                $('#addNew').modal('hide');
+                $('#addNewTwo').modal('hide');
+                swal('Updated!', 'Updated successfully.', 'success');
+                Fire.$emit('createNew');
+                _this3.$Progress.finish();
+            }).catch(function () {
+                $('#addNew').modal('hide');
+                $('#addNewTwo').modal('hide');
+                _this3.$Progress.fail();
+            });
+        },
+        createPartner: function createPartner() {
+            var _this4 = this;
+
+            this.$Progress.start();
+            this.form.post('api/partner').then(function () {
+                $('#addNew').modal('hide');
+                toast({
+                    type: 'success',
+                    title: 'Created successfully!!'
+                });
+                Fire.$emit('createNew');
+                _this4.$Progress.finish();
+            }).catch(function () {});
+        },
+        loadPartner: function loadPartner() {
+            var _this5 = this;
+
+            if (this.$gate.isAuthorOrAdmin()) {
+                axios.get('api/partner').then(function (_ref) {
+                    var data = _ref.data;
+                    return _this5.tasks = data;
+                });
+            }
+        }
+    },
+    created: function created() {
+        var _this6 = this;
+
+        this.loadPartner();
+        Fire.$on('createNew', function () {
+            return _this6.loadPartner();
+        });
+    }
+});
+
+/***/ }),
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row mt-5" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _vm.$gate.isAuthorOrAdmin()
+          ? _c(
+              "div",
+              { staticClass: "card" },
+              [
+                _c("div", { staticClass: "card-header" }, [
+                  _c("h3", { staticClass: "card-title" }, [_vm._v("Partners")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-tools" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        on: { click: _vm.newModal }
+                      },
+                      [
+                        _vm._v("Add New partner"),
+                        _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "paginate",
+                  { attrs: { name: "tasks", list: _vm.tasks, per: 7 } },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "card-body table-responsive p-0" },
+                      [
+                        _c("table", { staticClass: "table table-hover" }, [
+                          _c(
+                            "tbody",
+                            [
+                              _c("tr", [
+                                _c("th", [_vm._v("Image")]),
+                                _vm._v(" "),
+                                _c("th", [_vm._v("Website URL")]),
+                                _vm._v(" "),
+                                _c("th", [_vm._v("Date Modified")]),
+                                _vm._v(" "),
+                                _c("th", [_vm._v("Modify")])
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.paginated("tasks"), function(value) {
+                                return _c("tr", { key: value.id }, [
+                                  _c(
+                                    "td",
+                                    { staticStyle: { width: "270px" } },
+                                    [
+                                      _c("img", {
+                                        staticClass: "slides",
+                                        attrs: {
+                                          src: "/img/partners/" + value.img
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(value.url))]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v(
+                                      _vm._s(_vm._f("fDate")(value.updated_at))
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "#" },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.editModal(value)
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "fas fa-edit" })]
+                                    ),
+                                    _vm._v(
+                                      "\n                          /  \n                        "
+                                    ),
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "#" },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.deletePartner(value.id)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fas fa-trash-alt"
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              })
+                            ],
+                            2
+                          )
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("paginate-links", { attrs: { for: "tasks" } })
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "card" })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "addNew",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "addNewLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-dialog-centered",
+              attrs: { role: "document" }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c(
+                    "h5",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.editMode,
+                          expression: "editMode"
+                        }
+                      ],
+                      staticClass: "modal-title",
+                      attrs: { id: "addNewLabel" }
+                    },
+                    [_vm._v("Update partner info")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h5",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: !_vm.editMode,
+                          expression: "!editMode"
+                        }
+                      ],
+                      staticClass: "modal-title",
+                      attrs: { id: "addNewLabel" }
+                    },
+                    [_vm._v("Create partner")]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ]),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        _vm.editMode ? _vm.updatePartner() : _vm.createPartner()
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.url,
+                                expression: "form.url"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: { "is-invalid": _vm.form.errors.has("url") },
+                            attrs: {
+                              type: "text",
+                              name: "title",
+                              placeholder: "Enter partner website url"
+                            },
+                            domProps: { value: _vm.form.url },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "url", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "url" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "photo" } }, [
+                          _vm._v("Partner logo image")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-input",
+                          attrs: { type: "file", name: "img", id: "inputFile" },
+                          on: { change: _vm.photoUpload }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary",
+                          attrs: { type: "button", "data-dismiss": "modal" }
+                        },
+                        [_vm._v("Close")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.editMode,
+                              expression: "editMode"
+                            }
+                          ],
+                          staticClass: "btn btn-success",
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("Update")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: !_vm.editMode,
+                              expression: "!editMode"
+                            }
+                          ],
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("Create")]
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ]
+          )
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-59091a7e", module.exports)
+  }
+}
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(212)
+/* template */
+var __vue_template__ = __webpack_require__(213)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Developer.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5932c622", Component.options)
+  } else {
+    hotAPI.reload("data-v-5932c622", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 212 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -96845,7 +97459,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 210 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -96880,15 +97494,15 @@ if (false) {
 }
 
 /***/ }),
-/* 211 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(212)
+var __vue_script__ = __webpack_require__(215)
 /* template */
-var __vue_template__ = __webpack_require__(213)
+var __vue_template__ = __webpack_require__(216)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -96927,7 +97541,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 212 */
+/* 215 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97268,7 +97882,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 213 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97893,15 +98507,15 @@ if (false) {
 }
 
 /***/ }),
-/* 214 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(215)
+var __vue_script__ = __webpack_require__(218)
 /* template */
-var __vue_template__ = __webpack_require__(216)
+var __vue_template__ = __webpack_require__(219)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97940,7 +98554,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 215 */
+/* 218 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98176,7 +98790,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 216 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -98677,7 +99291,7 @@ if (false) {
 }
 
 /***/ }),
-/* 217 */
+/* 220 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98697,7 +99311,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 218 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -99262,7 +99876,7 @@ if (false) {
 }
 
 /***/ }),
-/* 219 */
+/* 222 */
 /***/ (function(module, exports) {
 
 module.exports =
@@ -100568,19 +101182,19 @@ module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u20
 //# sourceMappingURL=laravel-vue-pagination.common.js.map
 
 /***/ }),
-/* 220 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(221)
+  __webpack_require__(224)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(224)
+var __vue_script__ = __webpack_require__(227)
 /* template */
-var __vue_template__ = __webpack_require__(225)
+var __vue_template__ = __webpack_require__(228)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -100619,13 +101233,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 221 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(222);
+var content = __webpack_require__(225);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -100645,7 +101259,7 @@ if(false) {
 }
 
 /***/ }),
-/* 222 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(6)(false);
@@ -100659,7 +101273,7 @@ exports.push([module.i, "\n.action-link[data-v-1552a5b6] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 223 */
+/* 226 */
 /***/ (function(module, exports) {
 
 /**
@@ -100692,7 +101306,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 224 */
+/* 227 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -101056,7 +101670,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 225 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -101112,8 +101726,8 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.clients, function(client) {
-                  return _c("tr", [
+                _vm._l(_vm.clients, function(client, i) {
+                  return _c("tr", { key: i }, [
                     _c("td", { staticStyle: { "vertical-align": "middle" } }, [
                       _vm._v(
                         "\n                            " +
@@ -101617,19 +102231,19 @@ if (false) {
 }
 
 /***/ }),
-/* 226 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(227)
+  __webpack_require__(230)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(229)
+var __vue_script__ = __webpack_require__(232)
 /* template */
-var __vue_template__ = __webpack_require__(230)
+var __vue_template__ = __webpack_require__(233)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -101668,13 +102282,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 227 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(228);
+var content = __webpack_require__(231);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -101694,7 +102308,7 @@ if(false) {
 }
 
 /***/ }),
-/* 228 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(6)(false);
@@ -101708,7 +102322,7 @@ exports.push([module.i, "\n.action-link[data-v-397d14ca] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 229 */
+/* 232 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -101828,7 +102442,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 230 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -101937,19 +102551,19 @@ if (false) {
 }
 
 /***/ }),
-/* 231 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(232)
+  __webpack_require__(235)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(234)
+var __vue_script__ = __webpack_require__(237)
 /* template */
-var __vue_template__ = __webpack_require__(235)
+var __vue_template__ = __webpack_require__(238)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -101988,13 +102602,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 232 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(233);
+var content = __webpack_require__(236);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -102014,7 +102628,7 @@ if(false) {
 }
 
 /***/ }),
-/* 233 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(6)(false);
@@ -102028,7 +102642,7 @@ exports.push([module.i, "\n.action-link[data-v-49962cc0] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 234 */
+/* 237 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102350,7 +102964,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 235 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -102728,643 +103342,10 @@ if (false) {
 }
 
 /***/ }),
-/* 236 */
+/* 239 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(257)
-/* template */
-var __vue_template__ = __webpack_require__(258)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/pages/Partners.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-59091a7e", Component.options)
-  } else {
-    hotAPI.reload("data-v-59091a7e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 257 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            editMode: false,
-            tasks: [],
-            paginate: ['tasks'],
-            form: new Form({
-                id: '',
-                url: '',
-                img: ''
-            })
-        };
-    },
-
-    filters: {
-        summary: function summary(value) {
-            if (!value) return '';
-            value = value.toString();
-            return value.substr(0, 25) + '...';
-        }
-    },
-    methods: {
-        newModal: function newModal() {
-            this.editMode = false;
-            this.form.reset();
-            this.form.clear();
-            $('#addNew').modal('show');
-        },
-        editModal: function editModal(teamCont) {
-            this.editMode = true;
-            this.form.reset();
-            $('#addNew').modal('show');
-            this.form.clear();
-            this.form.fill(teamCont);
-        },
-        photoUpload: function photoUpload(e) {
-            var _this = this;
-
-            var file = e.target.files[0];
-            var reader = new FileReader();
-            if (file['size'] < 262144) {
-                reader.onloadend = function (file) {
-                    // console.log('Result', reader.result);
-                    _this.form.img = reader.result;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                swal({
-                    type: 'error',
-                    title: 'Failed to upload',
-                    text: 'Image should be less than 2mbs'
-                });
-            }
-        },
-        deletePartner: function deletePartner(id) {
-            var _this2 = this;
-
-            swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then(function (result) {
-                if (result.value) {
-                    _this2.form.delete('api/partner/' + id).then(function () {
-                        swal('Deleted!', 'Partner removed successfully.', 'success');
-                        Fire.$emit('createNew');
-                    }).catch(function () {
-                        swal({
-                            type: 'error',
-                            title: 'Failed',
-                            text: 'Something went wrong!'
-                        });
-                    });
-                }
-            });
-        },
-        updatePartner: function updatePartner() {
-            var _this3 = this;
-
-            this.$Progress.start();
-            this.form.put('api/partner/' + this.form.id).then(function () {
-                //success
-                $('#addNew').modal('hide');
-                $('#addNewTwo').modal('hide');
-                swal('Updated!', 'Updated successfully.', 'success');
-                Fire.$emit('createNew');
-                _this3.$Progress.finish();
-            }).catch(function () {
-                $('#addNew').modal('hide');
-                $('#addNewTwo').modal('hide');
-                _this3.$Progress.fail();
-            });
-        },
-        createPartner: function createPartner() {
-            var _this4 = this;
-
-            this.$Progress.start();
-            this.form.post('api/partner').then(function () {
-                $('#addNew').modal('hide');
-                toast({
-                    type: 'success',
-                    title: 'Created successfully!!'
-                });
-                Fire.$emit('createNew');
-                _this4.$Progress.finish();
-            }).catch(function () {});
-        },
-        loadPartner: function loadPartner() {
-            var _this5 = this;
-
-            if (this.$gate.isAuthorOrAdmin()) {
-                axios.get('api/partner').then(function (_ref) {
-                    var data = _ref.data;
-                    return _this5.tasks = data;
-                });
-            }
-        }
-    },
-    created: function created() {
-        var _this6 = this;
-
-        this.loadPartner();
-        Fire.$on('createNew', function () {
-            return _this6.loadPartner();
-        });
-    }
-});
-
-/***/ }),
-/* 258 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "row mt-5" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _vm.$gate.isAuthorOrAdmin()
-          ? _c(
-              "div",
-              { staticClass: "card" },
-              [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("h3", { staticClass: "card-title" }, [_vm._v("Partners")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-tools" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-success",
-                        on: { click: _vm.newModal }
-                      },
-                      [
-                        _vm._v("Add New partner"),
-                        _c("i", { staticClass: "fas fa-user-plus fa-fw" })
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "paginate",
-                  { attrs: { name: "tasks", list: _vm.tasks, per: 7 } },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "card-body table-responsive p-0" },
-                      [
-                        _c("table", { staticClass: "table table-hover" }, [
-                          _c(
-                            "tbody",
-                            [
-                              _c("tr", [
-                                _c("th", [_vm._v("Image")]),
-                                _vm._v(" "),
-                                _c("th", [_vm._v("Website URL")]),
-                                _vm._v(" "),
-                                _c("th", [_vm._v("Date Modified")]),
-                                _vm._v(" "),
-                                _c("th", [_vm._v("Modify")])
-                              ]),
-                              _vm._v(" "),
-                              _vm._l(_vm.paginated("tasks"), function(value) {
-                                return _c("tr", { key: value.id }, [
-                                  _c(
-                                    "td",
-                                    { staticStyle: { width: "270px" } },
-                                    [
-                                      _c("img", {
-                                        staticClass: "slides",
-                                        attrs: {
-                                          src: "/img/partners/" + value.img
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(value.url))]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(
-                                      _vm._s(_vm._f("fDate")(value.updated_at))
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _c(
-                                      "a",
-                                      {
-                                        attrs: { href: "#" },
-                                        on: {
-                                          click: function($event) {
-                                            _vm.editModal(value)
-                                          }
-                                        }
-                                      },
-                                      [_c("i", { staticClass: "fas fa-edit" })]
-                                    ),
-                                    _vm._v(
-                                      "\n                          /  \n                        "
-                                    ),
-                                    _c(
-                                      "a",
-                                      {
-                                        attrs: { href: "#" },
-                                        on: {
-                                          click: function($event) {
-                                            _vm.deletePartner(value.id)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fas fa-trash-alt"
-                                        })
-                                      ]
-                                    )
-                                  ])
-                                ])
-                              })
-                            ],
-                            2
-                          )
-                        ])
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("paginate-links", { attrs: { for: "tasks" } })
-              ],
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div", { staticClass: "card" })
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "addNew",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "addNewLabel",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c(
-                    "h5",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.editMode,
-                          expression: "editMode"
-                        }
-                      ],
-                      staticClass: "modal-title",
-                      attrs: { id: "addNewLabel" }
-                    },
-                    [_vm._v("Update partner info")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "h5",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: !_vm.editMode,
-                          expression: "!editMode"
-                        }
-                      ],
-                      staticClass: "modal-title",
-                      attrs: { id: "addNewLabel" }
-                    },
-                    [_vm._v("Create partner")]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(0)
-                ]),
-                _vm._v(" "),
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        _vm.editMode ? _vm.updatePartner() : _vm.createPartner()
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "modal-body" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.url,
-                                expression: "form.url"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            class: { "is-invalid": _vm.form.errors.has("url") },
-                            attrs: {
-                              type: "text",
-                              name: "title",
-                              placeholder: "Enter partner website url"
-                            },
-                            domProps: { value: _vm.form.url },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(_vm.form, "url", $event.target.value)
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "url" }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "photo" } }, [
-                          _vm._v("Partner logo image")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-input",
-                          attrs: { type: "file", name: "img", id: "inputFile" },
-                          on: { change: _vm.photoUpload }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "modal-footer" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-secondary",
-                          attrs: { type: "button", "data-dismiss": "modal" }
-                        },
-                        [_vm._v("Close")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.editMode,
-                              expression: "editMode"
-                            }
-                          ],
-                          staticClass: "btn btn-success",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("Update")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: !_vm.editMode,
-                              expression: "!editMode"
-                            }
-                          ],
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("Create")]
-                      )
-                    ])
-                  ]
-                )
-              ])
-            ]
-          )
-        ]
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "close",
-        attrs: {
-          type: "button",
-          "data-dismiss": "modal",
-          "aria-label": "Close"
-        }
-      },
-      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-59091a7e", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
