@@ -40,7 +40,7 @@
                         <li><a href="{{url ('networks')}}">Our Networks</a></li>
                         <li><a href="{{url ('how-it-works')}}">How It Works</a></li>
                         <li><a href="{{url ('contact')}}">Contact Us</a></li>
-                        <li><a href="{{url ('dashboard')}}">Dashboard</a></li>
+                        {{-- <li><a href="{{url ('dashboard')}}">Dashboard</a></li> --}}
                         
                     </ul>
                 </div>
