@@ -24,6 +24,8 @@ Route::apiResources(
 Route::apiResources(
     ['servic' => 'API\ServicesController']);
 Route::apiResources(
+    ['career' => 'API\CareerController']);
+Route::apiResources(
     ['policy' => 'API\PoliciesController']);
 Route::apiResources(
     ['team' => 'API\TeamController']);

@@ -150,6 +150,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Our Partners section</p>
                 </router-link>
               </li>
+              <li class="nav-item">
+                <router-link to="/edit-careers" class="nav-link">
+                  <i class="fas fa-circle"></i>
+                  <p>Careers</p>
+                </router-link>
+              </li>
               
             </ul>
           </li>

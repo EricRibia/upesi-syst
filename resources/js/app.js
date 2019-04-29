@@ -49,6 +49,7 @@ const routes = [
     { path: '/edit-team', component:  require('./components/pages/Team.vue') },
     { path: '/edit-slider', component:  require('./components/pages/Slider.vue') },
     { path: '/edit-partners', component:  require('./components/pages/Partners.vue') },
+    { path: '/edit-careers', component: require('./components/pages/Careers.vue') },
     { path: '/developer', component:  require('./components/Developer.vue') },
     { path: '/profile', component:  require('./components/Profile.vue') },
     { path: '/users', component:  require('./components/Users.vue') },

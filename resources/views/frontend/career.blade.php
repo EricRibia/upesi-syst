@@ -59,13 +59,13 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <h5>{{$value->title}}</h5>
-                                            <p>{{$value->employer_name}}</p>
+                                            <p>{{$value->description}}</p>
                                         </div>
                                         <div class="col-sm-3">
                                             <h6 class="text-center mtp-15">{{$value->location}}</h6>
                                         </div>
                                         <div class="col-sm-4">
-                                            <a target="blank" class="btn_1 rounded full-width" href="{{$value->styled_flow_url}}">Apply Now</a>
+                                            <a target="blank" class="btn_1 rounded full-width" href="{{$value->application_url}}">Apply Now</a>
                                         </div>
                                     </div>
                                 </div>
