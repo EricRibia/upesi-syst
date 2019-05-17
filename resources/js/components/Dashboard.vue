@@ -117,8 +117,7 @@
                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-user-tie"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Careers Page <br />Number of Jobs</span>
-                        <span class="info-box-number">{{crrs.length}}</span>
+                        <span class="info-box-text">Careers Page <br />Number of jobs - {{crrs.length}}</span>
                         <router-link to="/edit-careers" class="small-box-footer">
                             Edit info <i class="fa fa-arrow-circle-right"></i>
                         </router-link>
@@ -132,8 +131,7 @@
                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-mouse-pointer"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Send Money Link <br />Number of Jobs</span>
-                        <span class="info-box-number">{{crrs.length}}</span>
+                        <span class="info-box-text">Send Money Link <br />Current Link - {{link[0].url}}</span>
                         <router-link to="/edit-sendmoney-link" class="small-box-footer">
                             Edit Link <i class="fa fa-arrow-circle-right"></i>
                         </router-link>
@@ -222,6 +220,7 @@
             return {
                 tasks: [],
                 crrs: [],
+                link:[],
             }
         },
         computed: {
@@ -256,11 +255,18 @@
                         data
                     }) => (this.crrs = data));
                 }
-            }
+            },
+            loadLink(){
+                if(this.$gate.isAuthorOrAdmin())
+                {
+                    axios.get('api/sendmoneylink').then(( {data} ) => (this.link = data));
+                }
+            },
         },
         created() {
             this.loadabout();
             this.loadcareers();
+            this.loadLink();
             // Fire.$on('createNew', () => this.loadabout());
         }
     }
