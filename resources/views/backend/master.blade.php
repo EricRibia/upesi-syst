@@ -104,6 +104,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
+              <li>
+              <a href="{{url ('/edit-sendmoney-link')}}" class="nav-link">
+                <i class="fas fa-mouse-pointer"></i>
+                <p>
+                 Send Money Link
+                </p>
+              </a>
+            </li>
           {{-- @canany(['isAdmin', 'isAuthor']) --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

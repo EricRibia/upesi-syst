@@ -7,7 +7,7 @@
         <li><a href="{{url('services')}}" class="login">Our Services</a></li>
         <li><a href="{{url('networks')}}" class="login">Our Networks</a></li>
         <li><a href="{{url('contact')}}" class="login">Contact Us</a></li>
-        <li class="hidden_tablet"><a href="#"  class="btn_1 rounded">SEND MONEY</a></li>
+        <li class="hidden_tablet"><a href={{$sendmoneylink->url}}  target="blank" class="btn_1 rounded">SEND MONEY</a></li>
         {{-- @if (Auth::check())      
         <li class="hidden_tablet"><a href="{{url('/dashboard')}}"  class="btn_1 rounded">Dashboard</a></li>
         @endif --}}

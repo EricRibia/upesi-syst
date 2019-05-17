@@ -86,7 +86,7 @@
         <!-- /.row -->
         <!-- Small Box (Stat card) -->
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-users"></i></span>
 
@@ -98,7 +98,7 @@
                 </div>
                 <!-- /.info-box -->
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-users"></i></span>
 
@@ -110,7 +110,9 @@
                 </div>
                 <!-- /.info-box -->
             </div>
-            <div class="col-sm-4">
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-user-tie"></i></span>
 
@@ -119,6 +121,21 @@
                         <span class="info-box-number">{{crrs.length}}</span>
                         <router-link to="/edit-careers" class="small-box-footer">
                             Edit info <i class="fa fa-arrow-circle-right"></i>
+                        </router-link>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-sm-6">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-mouse-pointer"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Send Money Link <br />Number of Jobs</span>
+                        <span class="info-box-number">{{crrs.length}}</span>
+                        <router-link to="/edit-sendmoney-link" class="small-box-footer">
+                            Edit Link <i class="fa fa-arrow-circle-right"></i>
                         </router-link>
                     </div>
                     <!-- /.info-box-content -->

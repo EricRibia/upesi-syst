@@ -41,6 +41,8 @@ Route::apiResources(
     ['slider' => 'API\SliderController']);
 Route::apiResources(
     ['partner' => 'API\PartnersController']);
+Route::apiResources(
+    ['sendmoneylink' => 'API\SendmoneylinkController']);
 
 Route::get('contactforms', 'API\ContactdisplayController@index');
 Route::delete('contactforms/{form}', 'API\ContactdisplayController@destroy');
