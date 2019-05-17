@@ -89156,7 +89156,7 @@ var render = function() {
             { staticClass: "info-box-content" },
             [
               _c("span", { staticClass: "info-box-text" }, [
-                _vm._v("Send Money Link "),
+                _vm._v("Sendmoney Link "),
                 _c("br"),
                 _vm._v("Current Link - " + _vm._s(_vm.link[0].url))
               ]),

@@ -131,7 +131,7 @@
                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-mouse-pointer"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Send Money Link <br />Current Link - {{link[0].url}}</span>
+                        <span class="info-box-text">Sendmoney Link <br />Current Link - {{link[0].url}}</span>
                         <router-link to="/edit-sendmoney-link" class="small-box-footer">
                             Edit Link <i class="fa fa-arrow-circle-right"></i>
                         </router-link>
